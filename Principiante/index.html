@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>IA para Niños</title>
+ 
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 ¿Qué es la Inteligencia Artificial?</h1>
+            <div class="subtitle">¡Una aventura tecnológica para curiosos! 🚀</div>
+        </div>
+        
+        <div class="brain-section">
+            <h2>🧠 ¡Es como tener un cerebro súper inteligente en las computadoras!</h2>
+            <p style="font-size: 1.3em;">La Inteligencia Artificial (IA) es cuando las máquinas pueden "pensar" y hacer cosas que normalmente solo los humanos podían hacer.</p>
+            
+            <div class="brain-comparison">
+                <div class="brain-card">
+                    <span class="emoji">👨‍🎓</span>
+                    <h3>Cerebro Humano</h3>
+                    <p>• Aprende en la escuela<br>
+                    • Resuelve problemas<br>
+                    • Reconoce a sus amigos<br>
+                    • Habla diferentes idiomas</p>
+                </div>
+                <div class="brain-card">
+                    <span class="emoji">🤖</span>
+                    <h3>Cerebro Artificial</h3>
+                    <p>• Aprende de millones de datos<br>
+                    • Resuelve problemas muy rápido<br>
+                    • Reconoce caras en fotos<br>
+                    • Traduce idiomas al instante</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2 style="text-align: center; color: #ff6b9d; font-size: 2.5em;">🎯 ¿Dónde encuentras IA todos los días?</h2>
+        
+        <div class="examples-grid">
+            <div class="example-card">
+                <span class="big-emoji">📱</span>
+                <h3>En tu teléfono</h3>
+                <p>Siri o Google Assistant te ayudan a buscar información y responder preguntas, ¡como un amigo muy inteligente!</p>
+            </div>
+            
+            <div class="example-card">
+                <span class="big-emoji">📺</span>
+                <h3>En Netflix</h3>
+                <p>Te recomienda películas que podrían gustarte, igual que cuando un amigo te sugiere un juego nuevo.</p>
+            </div>
+            
+            <div class="example-card">
+                <span class="big-emoji">🎮</span>
+                <h3>En videojuegos</h3>
+                <p>Los personajes del juego se mueven y toman decisiones solos, como si fueran jugadores reales.</p>
+            </div>
+            
+            <div class="example-card">
+                <span class="big-emoji">🚗</span>
+                <h3>En autos inteligentes</h3>
+                <p>Algunos carros pueden manejar solos, como si tuvieran un chofer invisible muy cuidadoso.</p>
+            </div>
+            
+            <div class="example-card">
+                <span class="big-emoji">🏥</span>
+                <h3>En hospitales</h3>
+                <p>Ayuda a los doctores a encontrar enfermedades más rápido, como un detective médico súper inteligente.</p>
+            </div>
+            
+            <div class="example-card">
+                <span class="big-emoji">🎨</span>
+                <h3>Para crear arte</h3>
+                <p>Puede dibujar y pintar imágenes increíbles solo con que le digas lo que quieres ver.</p>
+            </div>
+        </div>
+        
+        <div class="learning-section">
+            <h2>📚 ¿Cómo aprende la IA? ¡Como tú en la escuela!</h2>
+            
+            <div class="steps-container">
+                <div class="step-circle">
+                    <div class="step-number">1</div>
+                    <div>Le damos muchos ejemplos</div>
+                </div>
+                <div class="arrow">➡️</div>
+                <div class="step-circle">
+                    <div class="step-number">2</div>
+                    <div>Encuentra patrones</div>
+                </div>
+                <div class="arrow">➡️</div>
+                <div class="step-circle">
+                    <div class="step-number">3</div>
+                    <div>Practica mucho</div>
+                </div>
+                <div class="arrow">➡️</div>
+                <div class="step-circle">
+                    <div class="step-number">4</div>
+                    <div>¡Ya puede ayudarnos!</div>
+                </div>
+            </div>
+            
+            <p style="text-align: center; font-size: 1.3em; margin-top: 30px; color: #2d3436;">
+                <strong>¡Es igual que cuando aprendes matemáticas!</strong><br>
+                Primero ves muchos ejemplos de sumas, luego practicas, y después ya puedes resolver cualquier suma tú solo.
+            </p>
+        </div>
+        
+        <div class="interactive-question">
+            <h3>🎯 ¡Pregunta Interactiva!</h3>
+            <p style="font-size: 1.2em; color: #2d3436;">Si le enseñas a una IA millones de fotos de perros y gatos, ¿qué crees que podrá hacer después?</p>
+            
+            <div class="question-options">
+                <button class="option-button" onclick="showAnswer('incorrect')">Cocinar pizza 🍕</button>
+                <button class="option-button" onclick="showAnswer('correct')">Reconocer si una nueva foto es de un perro o un gato 🐕🐱</button>
+                <button class="option-button" onclick="showAnswer('incorrect')">Volar al espacio 🚀</button>
+            </div>
+            
+            <div id="answer-feedback" class="answer-feedback"></div>
+        </div>
+        
+        <div class="safety-section">
+            <h2>🛡️ Reglas importantes para usar IA de forma segura</h2>
+            
+            <div class="safety-rules">
+                <div class="safety-rule">
+                    <span class="rule-emoji">🔐</span>
+                    <div class="rule-text">Nunca compartas información personal (tu nombre, dirección, teléfono)</div>
+                </div>
+                
+                <div class="safety-rule">
+                    <span class="rule-emoji">👨‍👩‍👧‍👦</span>
+                    <div class="rule-text">Siempre pide permiso a tus papás antes de usar herramientas de IA</div>
+                </div>
+                
+                <div class="safety-rule">
+                    <span class="rule-emoji">🤔</span>
+                    <div class="rule-text">Recuerda: la IA puede cometer errores, siempre verifica la información importante</div>
+                </div>
+                
+                <div class="safety-rule">
+                    <span class="rule-emoji">👥</span>
+                    <div class="rule-text">Usa la IA para aprender y crear, pero también juega con tus amigos reales</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="future-section">
+            <h2>🚀 ¿Qué trabajos del futuro usarán IA?</h2>
+            <p style="font-size: 1.3em;">¡Casi todos! Pero no te preocupes, la IA necesitará humanos creativos e inteligentes como tú.</p>
+            
+            <div class="future-jobs">
+                <div class="future-job">🎨 Artista Digital</div>
+                <div class="future-job">🧬 Científico</div>
+                <div class="future-job">👩‍⚕️ Doctor</div>
+                <div class="future-job">👨‍🏫 Profesor</div>
+                <div class="future-job">🎮 Creador de Videojuegos</div>
+                <div class="future-job">🚀 Ingeniero Espacial</div>
+                <div class="future-job">🌱 Protector del Ambiente</div>
+                <div class="future-job">🎬 Cineasta</div>
+            </div>
+        </div>
+        
+        <div style="background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%); padding: 30px; border-radius: 20px; text-align: center; border: 3px solid #e84393;">
+            <h2 style="color: #2d3436; font-size: 2.2em; margin-bottom: 20px;">🌟 ¡Lo más importante!</h2>
+            <p style="font-size: 1.4em; color: #2d3436; line-height: 1.6;">
+                La IA es una herramienta súper poderosa que puede ayudarnos a hacer cosas increíbles.<br>
+                <strong>¡Pero siempre necesitará la creatividad, bondad e inteligencia de los humanos como tú!</strong><br><br>
+                <span style="font-size: 1.2em;">🎯 Sigue estudiando, siendo curioso y soñando en grande. ¡El futuro es tuyo! 💫</span>
+            </p>
+        </div>
+    </div>
+<script src="main.js"></script>
+</body>
+</html>
