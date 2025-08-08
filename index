@@ -326,7 +326,7 @@
             <div class="level-card beginner" onclick="selectLevel('beginner')">
                 <div class="duration-badge">6 meses</div>
                 <span class="card-icon">🌱</span>
-                <h2 class="card-title">Principiante</h2>
+              <a href="Principiante\index.html"><h2 class="card-title">Principiante</h2></a>
                 <p class="card-description">
                     Perfecto si nunca has trabajado con IA o programación. Comenzaremos desde cero con conceptos básicos y ejemplos prácticos.
                 </p>
