@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap IA - Selecciona tu Nivel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .header {
+            margin-bottom: 60px;
+            color: white;
+        }
+        
+        .header h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .level-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            border: 3px solid transparent;
+        }
+        
+        .level-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .level-card.beginner::before {
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .level-card.intermediate::before {
+            background: linear-gradient(90deg, #fa709a 0%, #fee140 100%);
+        }
+        
+        .level-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+        }
+        
+        .level-card.beginner:hover {
+            border-color: #4facfe;
+        }
+        
+        .level-card.intermediate:hover {
+            border-color: #fa709a;
+        }
+        
+        .card-icon {
+            font-size: 4em;
+            margin-bottom: 25px;
+            display: block;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+        }
+        
+        .card-title {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .beginner .card-title {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .intermediate .card-title {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-description {
+            font-size: 1.15em;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .features-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 35px;
+        }
+        
+        .features-list li {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            font-size: 1.05em;
+            color: #555;
+        }
+        
+        .features-list li::before {
+            content: "✓";
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 15px;
+            background: rgba(39, 174, 96, 0.1);
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .select-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .beginner .select-button {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+        }
+        
+        .intermediate .select-button {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            box-shadow: 0 8px 25px rgba(250, 112, 154, 0.3);
+        }
+        
+        .select-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        }
+        
+        .beginner .select-button:hover {
+            box-shadow: 0 12px 35px rgba(79, 172, 254, 0.4);
+        }
+        
+        .intermediate .select-button:hover {
+            box-shadow: 0 12px 35px rgba(250, 112, 154, 0.4);
+        }
+        
+        .duration-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        
+        .difficulty-meter {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            gap: 8px;
+        }
+        
+        .difficulty-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            transition: all 0.3s ease;
+        }
+        
+        .beginner .difficulty-dot:nth-child(1) {
+            background: #4facfe;
+        }
+        
+        .intermediate .difficulty-dot:nth-child(1),
+        .intermediate .difficulty-dot:nth-child(2),
+        .intermediate .difficulty-dot:nth-child(3) {
+            background: #fa709a;
+        }
+        
+        .footer {
+            margin-top: 60px;
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1em;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .floating-icon {
+            position: absolute;
+            font-size: 2em;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-icon:nth-child(1) { top: 10%; left: 10%; animation-delay: -1s; }
+        .floating-icon:nth-child(2) { top: 20%; right: 15%; animation-delay: -3s; }
+        .floating-icon:nth-child(3) { bottom: 20%; left: 15%; animation-delay: -2s; }
+        .floating-icon:nth-child(4) { bottom: 10%; right: 10%; animation-delay: -4s; }
+        .floating-icon:nth-child(5) { top: 50%; left: 5%; animation-delay: -0.5s; }
+        .floating-icon:nth-child(6) { top: 60%; right: 8%; animation-delay: -2.5s; }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .cards-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .level-card {
+                padding: 40px 30px;
+            }
+            
+            .card-title {
+                font-size: 2em;
+            }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-icon">🤖</div>
+        <div class="floating-icon">🧠</div>
+        <div class="floating-icon">📊</div>
+        <div class="floating-icon">⚡</div>
+        <div class="floating-icon">🔬</div>
+        <div class="floating-icon">💡</div>
+    </div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Roadmap Inteligencia Artificial</h1>
+            <p>Elige tu nivel de conocimiento para comenzar tu aventura en IA</p>
+        </div>
+        
+        <div class="cards-container">
+            <div class="level-card beginner" onclick="selectLevel('beginner')">
+                <div class="duration-badge">6 meses</div>
+                <span class="card-icon">🌱</span>
+                <h2 class="card-title">Principiante</h2>
+                <p class="card-description">
+                    Perfecto si nunca has trabajado con IA o programación. Comenzaremos desde cero con conceptos básicos y ejemplos prácticos.
+                </p>
+                
+                <div class="difficulty-meter">
+                    <div class="difficulty-dot"></div>
+                    <div class="difficulty-dot"></div>
+                    <div class="difficulty-dot"></div>
+                    <div class="difficulty-dot"></div>
+                    <div class="difficulty-dot"></div>
+                </div>
+                
+                <ul class="features-list">
+                    <li>Sin conocimientos previos requeridos</li>
+                    <li>Introducción a conceptos de IA</li>
+                    <li>Python desde cero</li>
+                    <li>Machine Learning básico</li>
+                    <li>Herramientas para principiantes</li>
+                    <li>Proyectos guiados paso a paso</li>
+                    <li>Enfoque en seguridad y ética</li>
+                </ul>
+                
+                <button class="select-button">
+                    Comenzar Aventura
+                </button>
+            </div>
+            
+            <div class="level-card intermediate" onclick="selectLevel('intermediate')">
+                <div class="duration-badge">4 meses</div>
+                <span class="card-icon">⚡</span>
+                <h2 class="card-title">Intermedio</h2>
+                <p class="card-description">
+                    Ideal si ya tienes experiencia en programación o conocimientos básicos de IA. Profundizaremos en técnicas avanzadas.
+                </p>
+                
+                <div class="difficulty-meter">
+                    <div class="difficulty-dot"></div>
+                    <div class="difficulty-dot"></div>
+                    <div class="difficulty-dot"></div>
+                    <div class="difficulty-dot"></div>
+                    <div class="difficulty-dot"></div>
+                </div>
+                
+                <ul class="features-list">
+                    <li>Conocimiento básico de programación</li>
+                    <li>Deep Learning avanzado</li>
+                    <li>Neural Networks complejas</li>
+                    <li>TensorFlow y PyTorch</li>
+                    <li>Proyectos independientes</li>
+                    <li>MLOps y deployment</li>
+                    <li>Optimización y performance</li>
+                </ul>
+                
+                <button class="select-button">
+                    Acelerar Aprendizaje
+                </button>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>💡 No te preocupes por elegir mal, siempre podrás cambiar de nivel durante el curso</p>
+        </div>
+    </div>
+    
+    <script>
+        function selectLevel(level) {
+            // Agregar efecto visual
+            const selectedCard = document.querySelector(`.${level}`);
+            selectedCard.classList.add('pulse');
+            
+            // Simular carga
+            setTimeout(() => {
+                if (level === 'beginner') {
+                    alert('🎉 ¡Excelente elección! Comenzarás con el roadmap para principiantes. Te llevará paso a paso desde los conceptos más básicos hasta crear tus primeros proyectos de IA.');
+                    // Aquí podrías redirigir a la página del roadmap principiante
+                    // window.location.href = 'roadmap-principiante.html';
+                } else {
+                    alert('🚀 ¡Perfecto! El roadmap intermedio te llevará a un nivel avanzado más rápidamente, asumiendo que ya tienes bases de programación.');
+                    // Aquí podrías redirigir a la página del roadmap intermedio
+                    // window.location.href = 'roadmap-intermedio.html';
+                }
+                
+                selectedCard.classList.remove('pulse');
+            }, 1000);
+        }
+        
+        // Agregar efecto de hover mejorado
+        document.querySelectorAll('.level-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
