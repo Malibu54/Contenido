@@ -1,5 +1,7 @@
 # 🤖 AI Roadmap Interactivo
 
+![Web Screenshot](/assets/Screenshot%202025-08-10%20113243.png)
+
 ## 📋 Descripción
 
 Este proyecto contiene una colección de roadmaps interactivos y visuales diseñados para diferentes audiencias que quieren aprender Inteligencia Artificial:
